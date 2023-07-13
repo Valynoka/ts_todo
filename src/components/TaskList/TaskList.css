@@ -1,0 +1,30 @@
+.taskList{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 200px;
+    overflow: scroll;
+    width: 100%;
+}
+
+.taskList__item{
+    display: flex;
+    gap: 16px;
+}
+
+.taskList__input:checked + .taskList__text {
+    text-decoration: line-through;
+}
+
+.taskList__text{
+    color: black;
+    font-size: 1.5rem;
+}
+
+.taskList__button{
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: red;
+    font-size: 26px;
+}

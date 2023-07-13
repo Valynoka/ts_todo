@@ -1,0 +1,29 @@
+
+.task__wrapper{
+    width: 100%;
+}
+.task__form{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+.task__input{
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 10px;
+}
+
+.task__button{
+    background-color: blue;
+    color: aliceblue;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.task__button:active{
+    background-color:aliceblue;
+    color: blue;
+}

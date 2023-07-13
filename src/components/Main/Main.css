@@ -1,0 +1,33 @@
+.main__wrapper{
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: bisque;
+    border: 2px;
+    border-radius: 10px;
+    border-color: black;
+    height: 100vh;
+    
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main__title{
+    color: rgb(1, 1, 40);
+    font-size: 3.5rem;
+    text-align: center;
+
+}
+
+.main__data{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
