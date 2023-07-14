@@ -7,6 +7,7 @@ import '../TaskList/TaskList.css'
 
 
 const TaskList:React.FC<Tasks> = () => {
+    // const {id} = props
     const tasks = useSelector((state: Appstate) => state.todos);
     const dispatch = useDispatch();
 
@@ -25,6 +26,7 @@ const TaskList:React.FC<Tasks> = () => {
                     <input
                     className='taskList__input'
                     type='checkbox'
+                    // onChange={complTask}
                     onChange={() => dispatch(comletedTodo(task.id))}
                     />
                     <p 
@@ -32,6 +34,7 @@ const TaskList:React.FC<Tasks> = () => {
                     >{task.message}</p>
                     <button
                     className='taskList__button'
+                    // onChange={dellTask}
                     onClick={() => dispatch(removeTodo(task.id))}
                     >X</button>
                 </li>

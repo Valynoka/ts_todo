@@ -1,4 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { act } from "react-dom/test-utils";
+import Task from "../components/Task/Task";
 
 export type Tasks = {
     id: string; 
@@ -25,9 +27,12 @@ const sliceTodo = createSlice({
             comletedTodo!.completed = !comletedTodo?.completed;
             return state;
         },
+        sortTodo: (state) => {
+            state.sort((a, b) => a.message.localeCompare(b.message));
+        },
     }
 });
 
-export const {addTodo, removeTodo, comletedTodo} = sliceTodo.actions;
+export const {addTodo, removeTodo, comletedTodo, sortTodo} = sliceTodo.actions;
 
 export default sliceTodo;

@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { AppDispatch } from "../../store/store";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../../store/sliceTodo";
+import { addTodo, sortTodo } from "../../store/sliceTodo";
 import '../Task/Task.css'
 
 
@@ -32,6 +32,12 @@ const Task: React.FC = () => {
                     className="task__button"
                     onClick={addNewTask}
                 >Add
+                </button>
+                <button
+                    className="task__button"
+                    onClick={(e) => dispatch(sortTodo())}
+                >
+                    Sort
                 </button>
             </form>
         </div>
