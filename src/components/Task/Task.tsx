@@ -10,8 +10,10 @@ const Task: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
     const inputRef = useRef<HTMLInputElement>(null);
     const addNewTask = () => {
-        const task = inputRef.current!.value.trim()
-        if (task !== '') {
+        const task = inputRef.current!.value.trim() /*но изначально же нельзя было оставлять пустую строку*/
+        if (task === '') {
+            alert('ADD YOUR TASK'); /* если я правильно понял, то это будет проверка на ввод*/
+        } else {
             dispatch(addTodo(task))
         }
     }

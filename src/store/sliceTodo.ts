@@ -1,16 +1,18 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { act } from "react-dom/test-utils";
-import Task from "../components/Task/Task";
+import { getItem } from "../utils/localStorage";
+
 
 export type Tasks = {
-    id: string; 
+    id: string;
     message: string;
     completed: boolean;
 };
 
+const initialState: Tasks[] = getItem('todos') || [];
+
 const sliceTodo = createSlice({
     name: 'todos',
-    initialState: [] as Tasks[],
+    initialState,
     reducers: {
         addTodo: (state, action: PayloadAction<string>) => {
             state.push({
@@ -18,6 +20,8 @@ const sliceTodo = createSlice({
                 message: action.payload,
                 completed: false,
             });
+            // localStorage.setItem('todos', JSON.stringify(state))
+            // console.log(localStorage.getItem('todos'))
         },
         removeTodo: (state, action: PayloadAction<string>) => {
             return state.filter((todo) => todo.id !== action.payload)
@@ -33,6 +37,6 @@ const sliceTodo = createSlice({
     }
 });
 
-export const {addTodo, removeTodo, comletedTodo, sortTodo} = sliceTodo.actions;
+export const { addTodo, removeTodo, comletedTodo, sortTodo } = sliceTodo.actions;
 
 export default sliceTodo;

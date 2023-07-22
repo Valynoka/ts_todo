@@ -2,6 +2,7 @@ import React from 'react';
 import TaskList from '../TaskList/TaskList';
 import Task from '../Task/Task';
 import '../Main/Main.css'
+import { LocalStore } from '../LocalStore/LocalStore';
 
 
 
@@ -15,6 +16,7 @@ const Main = () => {
                 <div className='main__data'>
                     <Task />
                     <TaskList id={''} message={''} completed={false} />
+                    <LocalStore id={''} message={''} completed={false}/>
                 </div>
             </div>
         </div>
