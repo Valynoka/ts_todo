@@ -3,6 +3,7 @@ import { AppDispatch } from "../../store/store";
 import { useDispatch } from "react-redux";
 import { addTodo, sortTodo } from "../../store/sliceTodo";
 import '../Task/Task.css'
+import { Button } from "antd";
 
 
 
@@ -30,17 +31,18 @@ const Task: React.FC = () => {
                     placeholder="Add your tasks"
                     ref={inputRef}
                 />
-                <button
-                    className="task__button"
+                <Button
+                    // className="task__button"
+                    type="primary"
                     onClick={addNewTask}
                 >Add
-                </button>
-                <button
-                    className="task__button"
+                </Button>
+                <Button
+                    // className="task__button"
                     onClick={(e) => dispatch(sortTodo())}
                 >
                     Sort
-                </button>
+                </Button>
             </form>
         </div>
     )

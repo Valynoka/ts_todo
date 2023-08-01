@@ -4,10 +4,6 @@ import Task from '../Task/Task';
 import '../Main/Main.css'
 import { LocalStore } from '../LocalStore/LocalStore';
 
-
-
-
-
 const Main = () => {
     return (
         <div className="main__wrapper">
