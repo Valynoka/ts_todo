@@ -5,15 +5,16 @@
 .task__form{
     width: 100%;
     display: flex;
+    align-items: center;
     gap: 10px;
 }
 
-.task__input{
+/* .task__input{
     width: 100%;
     padding: 16px;
     border: none;
     border-radius: 10px;
-}
+} */
 
 .task__button{
     background-color: blue;

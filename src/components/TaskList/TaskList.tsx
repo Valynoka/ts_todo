@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Appstate } from '../../store/store';
 import { Tasks, removeTodo, comletedTodo } from '../../store/sliceTodo';
 import '../TaskList/TaskList.css'
+import { CloseSquareTwoTone } from '@ant-design/icons';
+
 
 
 
@@ -24,10 +26,14 @@ const TaskList:React.FC<Tasks> = () => {
                     <p 
                     className='taskList__text'
                     >{task.message}</p>
-                    <button
+                    <CloseSquareTwoTone
+                    style={{ fontSize: '16px', color: '#08c' }}
+                    onClick={() => dispatch(removeTodo(task.id))}
+                    />
+                    {/* <button
                     className='taskList__button'
                     onClick={() => dispatch(removeTodo(task.id))}
-                    >X</button>
+                    ></button> */}
                 </li>
             ))}
         </ul>
