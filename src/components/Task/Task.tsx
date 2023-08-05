@@ -1,21 +1,22 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import { AppDispatch } from "../../store/store";
 import { useDispatch } from "react-redux";
 import { addTodo, sortTodo } from "../../store/sliceTodo";
 import '../Task/Task.css'
-import { Button } from "antd";
+import { Button, Input } from "antd";
 
 
 
 const Task: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
-    const inputRef = useRef<HTMLInputElement>(null);
+    // const inputRef = useRef<HTMLInputElement>(null); не работал этот хук потсле того, как подключил antd Input
+    const [task, setTask] = useState('')
     const addNewTask = () => {
-        const task = inputRef.current!.value.trim() /*но изначально же нельзя было оставлять пустую строку*/
+        const newTask = task.trim() /*но изначально же нельзя было оставлять пустую строку*/
         if (task === '') {
             alert('ADD YOUR TASK'); /* если я правильно понял, то это будет проверка на ввод*/
         } else {
-            dispatch(addTodo(task))
+            dispatch(addTodo(newTask))
         }
     }
     return (
@@ -25,11 +26,13 @@ const Task: React.FC = () => {
                 onSubmit={(e) => {
                     e.preventDefault();
                 }}>
-                <input
+                <Input
                     className="task__input"
                     type="text"
                     placeholder="Add your tasks"
-                    ref={inputRef}
+                    // ref={inputRef} - пришлось заменять на хук useState
+                    value={task}
+                    onChange={(e) => setTask(e.target.value)}
                 />
                 <Button
                     // className="task__button"
